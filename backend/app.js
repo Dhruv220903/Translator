@@ -11,7 +11,9 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-
+app.get('/', (req,res)=>{
+    res.send('hello world')
+}
 const AZURE_KEY = "65h2TyzTehCCgnFXeOhE2N5FMAy6y062OSLsme9BteoTvBm0p9DqJQQJ99AKACYeBjFXJ3w3AAAEACOGTenG";
 const AZURE_ENDPOINT = "https://multiser777777777.cognitiveservices.azure.com/";
 const AZURE_REGION = "eastus";
