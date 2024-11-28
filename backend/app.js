@@ -19,7 +19,9 @@ const AZURE_REGION = "eastus";
 
 const textAnalyticsClient = new TextAnalyticsClient(AZURE_ENDPOINT, new AzureKeyCredential(AZURE_KEY));
 
-
+app.get('/',(req,res)=>{
+    res.send('hello');
+})
 app.post("/analyze", async (req, res) => {
     const { text, targetLanguage } = req.body;
 
