@@ -9,6 +9,7 @@ const App = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     try {
       const response = await axios.post("https://translator-qhjy.onrender.com/analyze", {
         text,
