@@ -10,7 +10,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/analyze", {
+      const response = await axios.post("https://translator-qhjy.onrender.com/analyze", {
         text,
         targetLanguage,
       });
