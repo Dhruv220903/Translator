@@ -3,14 +3,14 @@ import axios from "axios";
 
 const App = () => {
   const [text, setText] = useState("");
-  const [targetLanguage, setTargetLanguage] = useState("es"); // Default to Spanish
+  const [targetLanguage, setTargetLanguage] = useState("en"); 
   const [translatedText, setTranslatedText] = useState("");
   const [sentiment, setSentiment] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/analyze", {
+      const response = await axios.post("https://translator-qhjy.onrender.com/analyze", {
         text,
         targetLanguage,
       });

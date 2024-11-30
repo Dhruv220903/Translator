@@ -39,7 +39,7 @@ app.post("/analyze", async (req, res) => {
                 },
             }
         );
-
+        console.log(translatorResponse);
         const translatedText = translatorResponse.data[0].translations[0].text;
 
     
