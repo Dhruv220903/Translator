@@ -3,11 +3,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const axios = require("axios");
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-
+const dotenv = require('dotenv')
 const app = express();
 const PORT = 5000;
 
-
+dotenv.config();
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -17,7 +17,7 @@ const AZURE_ENDPOINT = "https://multiser777777777.cognitiveservices.azure.com/";
 const AZURE_REGION = "eastus";
 
 
-const textAnalyticsClient = new TextAnalyticsClient(AZURE_ENDPOINT, new AzureKeyCredential(AZURE_KEY));
+const textAnalyticsClient = new TextAnalyticsClient(process.env.AZURE_ENDPOINT, new AzureKeyCredential(process.env.AZURE_KEY));
 
 app.get('/',(req,res)=>{
     res.send('hello');
@@ -33,13 +33,13 @@ app.post("/analyze", async (req, res) => {
             [{ Text: text }],
             {
                 headers: {
-                    "Ocp-Apim-Subscription-Key": AZURE_KEY,
-                    "Ocp-Apim-Subscription-Region": AZURE_REGION,
+                    "Ocp-Apim-Subscription-Key": process.env.AZURE_KEY,
+                    "Ocp-Apim-Subscription-Region": process.env.AZURE_REGION,
                     "Content-Type": "application/json",
                 },
             }
         );
-        console.log(translatorResponse);
+        
         const translatedText = translatorResponse.data[0].translations[0].text;
 
     
